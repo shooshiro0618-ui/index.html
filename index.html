@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="鑑定基準">
+    <title>不動産鑑定評価基準 学習アプリ</title>
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; margin: 0; padding: 0; background: #f2f2f7; color: #333; padding-bottom: 100px; }
+        header { background: #1c1c1e; color: white; padding: 15px; text-align: center; font-weight: bold; position: sticky; top: 0; z-index: 100; }
+        
+        .search-container { padding: 10px 15px; background: white; border-bottom: 1px solid #ccc; position: sticky; top: 50px; z-index: 99; }
+        input[type="text"] { width: 100%; padding: 10px; border: 1px solid #d1d1d6; border-radius: 10px; box-sizing: border-box; font-size: 16px; background: #e3e3e8; }
+        
+        .content { padding: 15px; background: white; margin-bottom: 20px; line-height: 1.8; font-size: 15px; }
+        .chapter-title { font-size: 18px; font-weight: bold; margin-top: 30px; border-left: 4px solid #007aff; padding-left: 8px; color: #007aff; background: #f0f8ff; padding-top: 5px; padding-bottom: 5px;}
+        .section-title { font-size: 16px; font-weight: bold; margin-top: 20px; color: #333; border-bottom: 2px solid #ccc; padding-bottom: 5px; }
+        .paragraph { margin-bottom: 15px; padding-bottom: 15px; border-bottom: 1px dashed #eee; transition: background-color 0.3s; }
+        .hidden { display: none !important; }
+        
+        mark { background-color: #ffd60a; color: #000; padding: 2px 0; border-radius: 2px; cursor: pointer; transition: background-color 0.3s; }
+        mark:active { background-color: #ff9f0a; }
+
+        .memo-section { padding: 15px; background: white; margin-bottom: 20px;}
+        .memo-list { list-style: none; padding: 0; margin: 0; }
+        .memo-list li { background: #f2f2f7; padding: 12px; margin-bottom: 10px; border-radius: 8px; font-size: 14px; cursor: pointer; border-left: 4px solid #ff9f0a; }
+        .memo-list li strong { display: block; margin-bottom: 4px; color: #1c1c1e; }
+        .memo-list li:active { background: #e5e5ea; }
+
+        .toolbar { position: fixed; bottom: 0; width: 100%; background: rgba(248, 248, 248, 0.95); backdrop-filter: blur(10px); border-top: 1px solid #ccc; display: flex; padding: 10px; box-sizing: border-box; justify-content: center; padding-bottom: calc(10px + env(safe-area-inset-bottom)); z-index: 100;}
+        button { background: #007aff; color: white; border: none; padding: 12px 20px; border-radius: 10px; font-size: 16px; cursor: pointer; font-weight: bold; width: 90%; box-shadow: 0 2px 5px rgba(0,0,0,0.2); }
+    </style>
+</head>
+<body>
+
+    <header>不動産鑑定評価基準</header>
+    
+    <div class="search-container">
+        <input type="text" id="searchInput" placeholder="基準を検索... (例: 地域要因)">
+    </div>
+
+    <div class="content" id="textContent">
+        <div class="paragraph chapter-title">総論 第１章 不動産の鑑定評価に関する基本的考察</div>
+        <div class="paragraph section-title">第１節 不動産とその価格</div>
+        <div class="paragraph">不動産は、通常、土地とその定着物をいう。土地は、その有用性の故にすべての国民の生活と活動とに欠くことのできない基盤である。</div>
+        <div class="paragraph">不動産の価格は、一般に、<br>（１）その不動産に対してわれわれが認める効用<br>（２）その不動産の相対的稀少性<br>（３）その不動産に対する有効需要<br>の三者の相関結合によって生ずる不動産の経済価値を、貨幣額をもって表示したものである。</div>
+        
+        <div class="paragraph chapter-title">総論 第２章 不動産の種別及び類型</div>
+        <div class="paragraph section-title">第１節 不動産の種別</div>
+        <div class="paragraph">不動産の種別とは、不動産の用途又は利用目的の如何により区分される不動産の分類をいい、地域種別と土地種別とに分けられる。</div>
+        <div class="paragraph section-title">第２節 不動産の類型</div>
+        <div class="paragraph">不動産の類型とは、その有体的利用及び権利関係の態様に応じて区分される不動産の分類をいう。（更地、建付地、借地権、底地等）</div>
+
+        <div class="paragraph chapter-title">総論 第３章 不動産の価格を形成する要因</div>
+        <div class="paragraph">不動産の価格を形成する要因とは、不動産の客観的価値に作用する諸要因をいう。価格形成要因は、一般的要因、地域要因及び個別的要因に分けられる。</div>
+
+        <div class="paragraph chapter-title">総論 第４章 不動産の価格に関する諸原則</div>
+        <div class="paragraph">不動産の価格は、価格形成要因の相互の作用の過程において形成されるが、この過程において不動産の価格がいかに形成されるかという法則性を抽出して原則としたものが、不動産の価格に関する諸原則である。</div>
+        <div class="paragraph"><strong>１．需要と供給の原則</strong>：不動産の価格は、他の財貨と同様に需要と供給の相互作用によって定まる。</div>
+        <div class="paragraph"><strong>２．変動の原則</strong>：不動産の価格は、価格形成要因の変化に伴って常に変動の過程にある。</div>
+        <div class="paragraph"><strong>３．代替の原則</strong>：不動産の価格は、代替し得る他の不動産又は財貨の価格と相互に影響を及ぼして定まる。</div>
+        <div class="paragraph"><strong>４．最有効使用の原則</strong>：不動産の価格は、その不動産の効用が最高度に発揮される可能性に最も富む使用を前提として把握される価格を標準として形成される。</div>
+        <div class="paragraph"><strong>５．均衡の原則</strong>：不動産の価格は、その不動産の構成要素の組合せが均衡を得ているかどうかに影響される。</div>
+        <div class="paragraph"><strong>６．適合の原則</strong>：不動産の価格は、その不動産がその属する地域の環境に適合しているかどうかに影響される。</div>
+        <div class="paragraph">※その他、収益逓増・逓減の原則、収益配分の原則、寄与の原則、競争の原則、予測の原則がある。</div>
+
+        <div class="paragraph chapter-title">総論 第５章 鑑定評価の基本的事項の確定</div>
+        <div class="paragraph">不動産の鑑定評価に当たっては、基本的事項として、対象不動産、価格時点及び価格又は賃料の種類を確定しなければならない。</div>
+        <div class="paragraph"><strong>１．対象不動産の確定</strong>：対象不動産の確定とは、鑑定評価の対象となる不動産の有体的利用及び権利関係の態様を確定することをいう。</div>
+        <div class="paragraph"><strong>２．価格時点の確定</strong>：不動産の価格は、常に変動の過程にあるため、不動産の鑑定評価を行うに当たっては、対象不動産の価格の判定の基準日を確定する必要がある。この日を価格時点という。</div>
+
+        <div class="paragraph chapter-title">総論 第６章 地域分析及び個別分析</div>
+        <div class="paragraph section-title">第１節 地域分析</div>
+        <div class="paragraph">地域分析とは、対象不動産がどのような地域に存するか、その地域はどのような特性を有するか、また、対象不動産に係る市場はどのような特性を有するか、及びそれらの特性がその地域内の不動産の利用形態と価格形成について全般的にどのような影響を与えているかを分析し、その地域における不動産の標準的的使用及び標準的価格を判定することをいう。</div>
+        <div class="paragraph section-title">第２節 個別分析</div>
+        <div class="paragraph">個別分析とは、対象不動産の個別的要因が対象不動産の最有効使用及びその価格の形成にどのような影響を与えているかを分析して、対象不動産の最有効使用を判定することをいう。</div>
+
+        <div class="paragraph chapter-title">総論 第７章 鑑定評価の方式</div>
+        <div class="paragraph">不動産の鑑定評価の方式には、原価方式、比較方式及び収益方式の三方式がある。</div>
+        <div class="paragraph section-title">第１節 原価法</div>
+        <div class="paragraph">原価法は、価格時点における対象不動産の再調達原価を求め、この再調達原価について減価修正を行って対象不動産の試算価格（積算価格）を求める手法である。</div>
+        <div class="paragraph section-title">第２節 取引事例比較法</div>
+        <div class="paragraph">取引事例比較法は、まず多数の取引事例を収集して適切な事例を選択し、これらに係る取引価格に必要に応じて事情補正及び時点修正を行い、かつ、地域要因の比較及び個別的要因の比較を行って求められた価格を比較考量し、これによって対象不動産の試算価格（比準価格）を求める手法である。</div>
+        <div class="paragraph section-title">第３節 収益還元法</div>
+        <div class="paragraph">収益還元法は、対象不動産が将来生み出すであろうと期待される純収益の現在価値の総和を求めることにより対象不動産の試算価格（収益価格）を求める手法である。直接還元法とDCF法がある。</div>
+
+        <div class="paragraph chapter-title">総論 第８章 鑑定評価の手順</div>
+        <div class="paragraph">鑑定評価は、１．鑑定評価の基本的事項の確定、２．処理計画の策定、３．対象不動産の確認、４．資料の収集及び整理、５．資料の検討及び価格形成要因の分析、６．鑑定評価方式の適用、７．試算価格又は試算賃料の調整、８．鑑定評価額の決定、の手順により行うものとする。</div>
+
+        <div class="paragraph chapter-title">総論 第９章 鑑定評価報告書</div>
+        <div class="paragraph">鑑定評価報告書は、不動産鑑定士が不動産の鑑定評価の成果を記載して依頼者に交付する文書であり、不動産鑑定士が責任を負うべき内容及びその根拠を明らかにしたものである。</div>
+
+        <div class="paragraph chapter-title">各論 第１章 価格に関する鑑定評価</div>
+        <div class="paragraph">対象不動産の価格に関する鑑定評価額は、対象不動産の種別及び類型を確定し、各類型に応じた鑑定評価の手法を適用して求めるものとする。更地の鑑定評価、建付地の鑑定評価、借地権の鑑定評価、底地の鑑定評価、自用等の建物及びその敷地の鑑定評価、貸家及びその敷地の鑑定評価等がある。</div>
+
+        <div class="paragraph chapter-title">各論 第２章 賃料に関する鑑定評価</div>
+        <div class="paragraph section-title">第１節 新規賃料の鑑定評価</div>
+        <div class="paragraph">新規賃料を求める鑑定評価の手法は、積算法、賃貸事例比較法、収益分析法等がある。</div>
+        <div class="paragraph section-title">第２節 継続賃料の鑑定評価</div>
+        <div class="paragraph">継続賃料を求める鑑定評価の手法は、差額配分法、利回り法、スライド法、賃貸事例比較法等がある。</div>
+
+        <div class="paragraph chapter-title">各論 第３章 証券化対象不動産の価格に関する鑑定評価</div>
+        <div class="paragraph">証券化対象不動産の鑑定評価に当たっては、投資家の保護等に資するため、依頼者に対して鑑定評価の範囲等に係る確認を確実に行うとともに、DCF法の適用等の一定の事項について詳細な調査・分析及び説明を行う必要がある。原則として、収益還元法（直接還元法及びDCF法）並びに原価法を適用するものとする。</div>
+        </div>
+
+    <div class="memo-section">
+        <h3 style="margin-top:0; font-size: 16px; color: #666;">📝 学習メモ一覧（タップで該当箇所へ）</h3>
+        <ul class="memo-list" id="memoList"></ul>
+    </div>
+
+    <div class="toolbar">
+        <button onclick="addHighlightAndMemo()">🖍 選択テキストにマーカー＆メモ追加</button>
+    </div>
+
+    <script>
+        const searchInput = document.getElementById('searchInput');
+        const textContent = document.getElementById('textContent');
+        const memoList = document.getElementById('memoList');
+
+        // アプリ起動時に保存データを読み込む
+        window.onload = function() {
+            const savedContent = localStorage.getItem('kantei_app_data_v2');
+            if (savedContent) {
+                textContent.innerHTML = savedContent;
+            }
+            renderMemoList();
+        };
+
+        // 1. インクリメンタル検索機能
+        searchInput.addEventListener('input', function() {
+            const keyword = this.value.toLowerCase();
+            document.querySelectorAll('.paragraph').forEach(p => {
+                const text = p.textContent.toLowerCase();
+                if (text.includes(keyword) || p.classList.contains('chapter-title') || p.classList.contains('section-title')) {
+                    p.classList.remove('hidden');
+                } else {
+                    p.classList.add('hidden');
+                }
+            });
+        });
+
+        // 2. マーカー＆メモ追加機能
+        function addHighlightAndMemo() {
+            const selection = window.getSelection();
+            if (!selection.rangeCount || selection.toString().trim() === '') {
+                alert('基準のテキストを選択してからボタンを押してください。');
+                return;
+            }
+
+            const selectedText = selection.toString();
+            const memoText = prompt(`「${selectedText}」\nに対するメモを入力してください:`);
+            
+            if (memoText !== null) { 
+                const range = selection.getRangeAt(0);
+                const mark = document.createElement('mark');
+                mark.textContent = selectedText;
+                mark.id = 'mark-' + Date.now();
+                mark.setAttribute('data-memo', memoText || '（メモなし）');
+                
+                range.deleteContents();
+                range.insertNode(mark);
+                
+                selection.removeAllRanges();
+                saveData();
+                renderMemoList();
+            }
+        }
+
+        // 3. マーカータップ時の挙動
+        textContent.addEventListener('click', function(e) {
+            if (e.target.tagName === 'MARK') {
+                const memo = e.target.getAttribute('data-memo');
+                const action = confirm(`【記録されたメモ】\n${memo}\n\n※「OK」を押すとこのマーカーとメモを削除します。`);
+                
+                if (action) {
+                    const parent = e.target.parentNode;
+                    while (e.target.firstChild) {
+                        parent.insertBefore(e.target.firstChild, e.target);
+                    }
+                    parent.removeChild(e.target);
+                    saveData();
+                    renderMemoList();
+                }
+            }
+        });
+
+        // 4. メモ一覧の生成とジャンプ機能
+        function renderMemoList() {
+            memoList.innerHTML = '';
+            const marks = textContent.querySelectorAll('mark');
+            
+            if (marks.length === 0) {
+                memoList.innerHTML = '<li style="border-left:none; color:#999; background:transparent;">メモはありません</li>';
+                return;
+            }
+
+            marks.forEach((mark) => {
+                const li = document.createElement('li');
+                li.innerHTML = `<strong>「${mark.textContent}」</strong>📝 ${mark.getAttribute('data-memo')}`;
+                
+                li.onclick = () => {
+                    mark.scrollIntoView({ behavior: "smooth", block: "center" });
+                    const originalBg = mark.style.backgroundColor;
+                    mark.style.backgroundColor = '#ff9f0a';
+                    setTimeout(() => {
+                        mark.style.backgroundColor = originalBg;
+                    }, 800);
+                };
+                memoList.appendChild(li);
+            });
+        }
+
+        function saveData() {
+            localStorage.setItem('kantei_app_data_v2', textContent.innerHTML);
+        }
+    </script>
+</body>
+</html>
